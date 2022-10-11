@@ -14,17 +14,18 @@ public class XmlMain {
 //        MessageSender smsMessageSender = context.getBean("SmsMessageSender", MessageSender.class);
 
 
-        new MessageSenderService(context.getBean("EmailMessageSender", MessageSender.class)).send();
-        System.out.println("---------------");
-        new MessageSenderService(context.getBean("EmailMessageSender", MessageSender.class)).send();
-
-        System.out.println("---------------");
-        new MessageSenderService(context.getBean("SmsMessageSender", MessageSender.class)).send();
-        System.out.println("---------------");
-        new MessageSenderService(context.getBean("SmsMessageSender", MessageSender.class)).send();
-
+//        new MessageSenderService(context.getBean("EmailMessageSender", MessageSender.class)).send();
+//        System.out.println("---------------");
+//        new MessageSenderService(context.getBean("EmailMessageSender", MessageSender.class)).send();
+//
+//        System.out.println("---------------");
+//        new MessageSenderService(context.getBean("SmsMessageSender", MessageSender.class)).send();
+//        System.out.println("---------------");
+//        new MessageSenderService(context.getBean("SmsMessageSender", MessageSender.class)).send();
+//
 //        emailMessageSender.sendMessage(new User("test", "010"),"mesage");
 //        smsMessageSender.sendMessage(new User("test", "010"), "message");
+        context.close();
 
     }
 

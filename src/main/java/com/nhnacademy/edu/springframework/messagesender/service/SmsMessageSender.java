@@ -5,8 +5,16 @@ import com.nhnacademy.edu.springframework.messagesender.User;
 public class SmsMessageSender implements MessageSender {
     public SmsMessageSender() {
         System.out.println("================= SmsMessageSender create ================");
-
     }
+
+    public void init() {
+        System.out.println("SmsMessageSender initMethod");
+    }
+
+    public void cleanUp() {
+        System.out.println("SmsMessageSender destroyMethod");
+    }
+
 
     @Override
     public void sendMessage(User user, String message) {

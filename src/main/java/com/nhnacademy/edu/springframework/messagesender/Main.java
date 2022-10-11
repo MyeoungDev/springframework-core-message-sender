@@ -6,7 +6,7 @@ import com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender
 
 public class Main {
     public static void main(String[] args) {
-        new MessageSenderService(new EmailMessageSender()).send();
-        new MessageSenderService(new SmsMessageSender()).send();
+//        new MessageSenderService(new EmailMessageSender()).send();
+//        new MessageSenderService(new SmsMessageSender()).send();
     }
 }

@@ -7,6 +7,14 @@ public class EmailMessageSender implements MessageSender {
         System.out.println("================= EmailMessageSender create ================");
     }
 
+    public void init() {
+        System.out.println("EmailMessageSender initMethod");
+    }
+
+    public void cleanUp() {
+        System.out.println("EmailMessageSender destroyMethod");
+    }
+
     @Override
     public void sendMessage(User user, String message) {
         System.out.println("Email Message Sent to " + user.getEmail() + " " + message);

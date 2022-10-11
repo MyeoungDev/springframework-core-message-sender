@@ -4,10 +4,38 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="EmailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.EmailMessageSender"
-    scope="singleton"></bean>
-    <bean id="SmsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender"
-    scope="prototype"></bean>
+    <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.EmailMessageSender"
+    scope="singleton"
+    init-method="init"
+    destroy-method="cleanUp"></bean>
+
+    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender"
+    scope="prototype"
+    init-method="init"
+    destroy-method="cleanUp"></bean>
 
 
+<!--    constructor DI -->
+<!--    <bean id="messageSenderService"-->
+<!--          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService">-->
+<!--        <constructor-arg ref="EmailMessageSender"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    setter DI -->
+<!--    <bean id="messageSenderService"-->
+<!--          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService">-->
+<!--        <property name="messageSender" ref="EmailMessageSender"></property>-->
+<!--    </bean>-->
+
+<!--    autowired DI byType-->
+<!--    <bean id="messageSenderService"-->
+<!--          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService"-->
+<!--            autowire="byType">-->
+<!--    </bean>-->
+
+    <!-- autowired DI byName-->
+    <bean id="messageSenderService"
+          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService"
+          autowire="byName">
+    </bean>
 </beans>
