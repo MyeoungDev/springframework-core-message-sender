@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- annotation설정을 위해 추가-->
+    <context:annotation-config/>
+
+    <context:property-placeholder location="classpath:greeter.properties"></context:property-placeholder>
 
     <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.EmailMessageSender"
-    scope="singleton"
     init-method="init"
     destroy-method="cleanUp"></bean>
 
     <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender"
-    scope="prototype"
     init-method="init"
-    destroy-method="cleanUp"></bean>
+    destroy-method="cleanUp">
+        <qualifier type="com.nhnacademy.edu.springframework.messagesender.annotation.SMS"></qualifier>
+    </bean>
 
 
 <!--    constructor DI -->
@@ -35,7 +44,6 @@
 
     <!-- autowired DI byName-->
     <bean id="messageSenderService"
-          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService"
-          autowire="byName">
+          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService">
     </bean>
 </beans>
