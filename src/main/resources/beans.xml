@@ -13,15 +13,15 @@
 
     <context:property-placeholder location="classpath:greeter.properties"></context:property-placeholder>
 
-    <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.EmailMessageSender"
-    init-method="init"
-    destroy-method="cleanUp"></bean>
+<!--    <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.EmailMessageSender"-->
+<!--    init-method="init"-->
+<!--    destroy-method="cleanUp"></bean>-->
 
-    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender"
-    init-method="init"
-    destroy-method="cleanUp">
-        <qualifier type="com.nhnacademy.edu.springframework.messagesender.annotation.SMS"></qualifier>
-    </bean>
+<!--    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.messagesender.service.SmsMessageSender"-->
+<!--    init-method="init"-->
+<!--    destroy-method="cleanUp">-->
+<!--        <qualifier type="com.nhnacademy.edu.springframework.messagesender.annotation.SMS"></qualifier>-->
+<!--    </bean>-->
 
 
 <!--    constructor DI -->
@@ -43,7 +43,7 @@
 <!--    </bean>-->
 
     <!-- autowired DI byName-->
-    <bean id="messageSenderService"
-          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService">
-    </bean>
+<!--    <bean id="messageSenderService"-->
+<!--          class="com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService">-->
+<!--    </bean>-->
 </beans>

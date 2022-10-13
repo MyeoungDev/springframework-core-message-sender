@@ -3,7 +3,6 @@ package com.nhnacademy.edu.springframework.messagesender;
 import com.nhnacademy.edu.springframework.messagesender.service.MessageSender;
 import com.nhnacademy.edu.springframework.messagesender.service.MessageSenderService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 public class AnnotationMain {
 
@@ -12,14 +11,14 @@ public class AnnotationMain {
         String basePackage = "com.nhnacademy.edu.springframework.messagesender";
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(basePackage);
 
-        MessageSender emailMessageSender = context.getBean("emailMessageSender", MessageSender.class);
-        MessageSender smsMessageSender = context.getBean("smsMessageSender", MessageSender.class);
-
-        emailMessageSender.sendMessage(new User("email@naver.com", "010-1234-5678"), "emailTest");
-        smsMessageSender.sendMessage(new User("email@naver.com", "010-1234-5678"), "smsTest");
-
-
-        System.out.println("-------------------------------");
+//        MessageSender emailMessageSender = context.getBean("emailMessageSender", MessageSender.class);
+//        MessageSender smsMessageSender = context.getBean("smsMessageSender", MessageSender.class);
+//
+//        emailMessageSender.sendMessage(new User("email@naver.com", "010-1234-5678"), "emailTest");
+//        smsMessageSender.sendMessage(new User("email@naver.com", "010-1234-5678"), "smsTest");
+//
+//
+//        System.out.println("-------------------------------");
 
         context.getBean("messageSenderService", MessageSenderService.class).send();
 
