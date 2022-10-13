@@ -11,6 +11,8 @@ public class AnnotationMain {
         String basePackage = "com.nhnacademy.edu.springframework.messagesender";
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(basePackage);
 
+
+        User user = new User("email@naver.com", "010-1234-5678");
 //        MessageSender emailMessageSender = context.getBean("emailMessageSender", MessageSender.class);
 //        MessageSender smsMessageSender = context.getBean("smsMessageSender", MessageSender.class);
 //
@@ -20,7 +22,7 @@ public class AnnotationMain {
 //
 //        System.out.println("-------------------------------");
 
-        context.getBean("messageSenderService", MessageSenderService.class).send();
+        context.getBean("messageSenderService", MessageSenderService.class).sendMessage(user, "test");
 
     }
 }

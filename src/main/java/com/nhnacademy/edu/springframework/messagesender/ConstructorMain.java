@@ -8,6 +8,6 @@ public class ConstructorMain {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:/beans.xml");
 
         MessageSenderService messageSenderService = context.getBean("messageSenderService", MessageSenderService.class);
-        messageSenderService.send();
+        messageSenderService.sendMessage(new User("test", "test"), "testMsg");
     }
 }

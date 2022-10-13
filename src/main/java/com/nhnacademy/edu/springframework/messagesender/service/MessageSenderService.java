@@ -3,26 +3,38 @@ package com.nhnacademy.edu.springframework.messagesender.service;
 import com.nhnacademy.edu.springframework.messagesender.User;
 import com.nhnacademy.edu.springframework.messagesender.annotation.SMS;
 import com.nhnacademy.edu.springframework.messagesender.aop.Auditable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MessageSenderService {
 
-    private final MessageSender messageSender;
+    @Autowired
+    @Qualifier("emailMessageSender")
+    private MessageSender messageSender;
 
     @Value("${from}")
     private String from;
 
     //    @SMS
-    public MessageSenderService(@SMS("smsMessageSender") MessageSender messageSender) {
+//    public MessageSenderService(@SMS("smsMessageSender") MessageSender messageSender) {
+//        this.messageSender = messageSender;
+////        this.from = from;
+//    }
+
+//    public MessageSenderService(@Qualifier("emailMessageSender") MessageSender messageSender) {
+//        this.messageSender = messageSender;
+//    }
+
+    public void setMessageSender(MessageSender messageSender) {
         this.messageSender = messageSender;
-//        this.from = from;
     }
 
     @Auditable("")
-    public void send() {
+    public boolean sendMessage(User user, String message) {
         System.out.println("from : " + from);
-        messageSender.sendMessage(new User("test@test", "010"), "message");
+        return this.messageSender.sendMessage(user, message);
     }
 }
